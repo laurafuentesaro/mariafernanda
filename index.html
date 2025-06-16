@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Antiinflamatorio Personalizado - María Fernanda Albrecht</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-1: #fafafa;
+            --gray-2: #f5f5f5;
+            --gray-3: #eeeeee;
+            --gray-4: #e5e5e5;
+            --gray-5: #d4d4d4;
+            --gray-6: #a3a3a3;
+            --gray-7: #737373;
+            --gray-8: #525252;
+            --gray-9: #404040;
+            --gray-10: #262626;
+            --gray-11: #171717;
+            --gray-12: #0a0a0a;
+            
+            --blue: #0070f3;
+            --blue-light: #3291ff;
+            --blue-lighter: #79b8ff;
+            --green: #0cce6b;
+            --green-light: #19e97f;
+            --orange: #ff6a00;
+            --red: #ff0000;
+            --red-light: #ff4444;
+            --purple: #8B4F9F;
+            --purple-light: #A66BB8;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+            
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--gray-11);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 0;
+            border-bottom: 1px solid var(--gray-3);
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, var(--black) 0%, var(--gray-8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--gray-7);
+            letter-spacing: -0.02em;
+        }
+        
+        .patient-info {
+            background: var(--gray-1);
+            border: 1px solid var(--gray-3);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .patient-item {
+            text-align: center;
+        }
+        
+        .patient-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .patient-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-9);
+            margin-top: 4px;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        
+        .stat-card {
+            background: var(--gray-1);
+            border: 1px solid var(--gray-3);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--gray-4);
+            transform: translateY(-1px);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Important Notes Section */
+        .important-section {
+            background: linear-gradient(135deg, rgba(139, 79, 159, 0.1) 0%, rgba(139, 79, 159, 0.05) 100%);
+            border: 2px solid var(--purple);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .important-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .important-content {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .important-item {
+            background: var(--white);
+            border: 1px solid rgba(139, 79, 159, 0.2);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .important-icon {
+            font-size: 20px;
+            color: var(--purple);
+            flex-shrink: 0;
+        }
+        
+        .important-text {
+            font-size: 14px;
+            color: var(--gray-9);
+            line-height: 1.6;
+        }
+        
+        .important-text strong {
+            color: var(--purple);
+            font-weight: 600;
+        }
+        
+        /* Day Cards Grid */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .day-card {
+            background: var(--white);
+            border: 1px solid var(--gray-3);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .day-card:hover {
+            border-color: var(--gray-4);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .day-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calories-badge {
+            background: var(--red);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .day-content {
+            padding: 24px;
+        }
+        
+        /* Meals */
+        .meal {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-3);
+        }
+        
+        .meal:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .meal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .meal-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-8);
+        }
+        
+        .meal-calories {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-6);
+        }
+        
+        .meal-items {
+            font-size: 13px;
+            color: var(--gray-9);
+            line-height: 1.8;
+        }
+        
+        .meal-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .meal-item::before {
+            content: "→";
+            color: var(--gray-5);
+            margin-right: 8px;
+            font-size: 12px;
+        }
+        
+        .portion {
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        /* Special Notes */
+        .special-note {
+            background: var(--blue-lighter);
+            background: linear-gradient(135deg, rgba(0, 112, 243, 0.1) 0%, rgba(0, 112, 243, 0.05) 100%);
+            border: 1px solid rgba(0, 112, 243, 0.2);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--gray-9);
+        }
+        
+        .special-note-label {
+            font-weight: 600;
+            color: var(--blue);
+            margin-right: 4px;
+        }
+        
+        /* Day Footer */
+        .day-footer {
+            background: var(--gray-1);
+            padding: 16px 24px;
+            border-top: 1px solid var(--gray-3);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .footer-item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: var(--gray-7);
+        }
+        
+        .footer-icon {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        .snack-note {
+            background: var(--orange);
+            background: linear-gradient(135deg, rgba(255, 106, 0, 0.1) 0%, rgba(255, 106, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 106, 0, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            font-size: 11px;
+            color: var(--gray-8);
+        }
+        
+        /* Supplements Section */
+        .supplements-section {
+            background: var(--purple-light);
+            background: linear-gradient(135deg, rgba(139, 79, 159, 0.1) 0%, rgba(139, 79, 159, 0.05) 100%);
+            border: 1px solid rgba(139, 79, 159, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .supplements-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .supplements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        
+        .supplement-card {
+            background: var(--white);
+            border: 1px solid rgba(139, 79, 159, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .supplement-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+        
+        .supplement-dose {
+            font-size: 13px;
+            color: var(--gray-7);
+            margin-bottom: 4px;
+        }
+        
+        .supplement-timing {
+            font-size: 12px;
+            color: var(--gray-6);
+            font-style: italic;
+        }
+        
+        /* Tips Section */
+        .tips-section {
+            margin-bottom: 48px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            border: 1px solid var(--gray-3);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+        
+        .tip-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-1px);
+        }
+        
+        .tip-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .tip-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+        
+        .tip-text {
+            font-size: 13px;
+            color: var(--gray-7);
+            line-height: 1.6;
+        }
+        
+        /* Alert Box */
+        .alert {
+            background: var(--red-light);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(255, 0, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .alert-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-icon {
+            margin-right: 8px;
+        }
+        
+        .alert ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .alert li {
+            font-size: 13px;
+            color: var(--gray-8);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .alert li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--red-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .week-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .patient-info {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Plan Antiinflamatorio Personalizado</h1>
+            <p class="subtitle">Sistema optimizado según programa Cell Wellbeing</p>
+        </header>
+        
+        <!-- Patient Info -->
+        <div class="patient-info">
+            <div class="patient-item">
+                <div class="patient-label">Paciente</div>
+                <div class="patient-value">María Fernanda Albrecht</div>
+            </div>
+            <div class="patient-item">
+                <div class="patient-label">Edad</div>
+                <div class="patient-value">59 años</div>
+            </div>
+            <div class="patient-item">
+                <div class="patient-label">Fecha</div>
+                <div class="patient-value">28/5/2025</div>
+            </div>
+            <div class="patient-item">
+                <div class="patient-label">Próxima Evaluación</div>
+                <div class="patient-value">26/8/2025</div>
+            </div>
+        </div>
+        
+        <!-- Important Notes -->
+        <div class="important-section">
+            <h2 class="important-title">
+                <span class="important-icon">⚠️</span>
+                Áreas de Soporte Prioritarias según Tu Evaluación
+            </h2>
+            <div class="important-content">
+                <div class="important-item">
+                    <span class="important-icon">😊</span>
+                    <div class="important-text">
+                        <strong>Soporte Emocional (Prioridad):</strong> Plan con alimentos ricos en triptófano, omega-3, magnesio y vitaminas B. Grasas saludables para producción de serotonina y mejora del sueño.
+                    </div>
+                </div>
+                <div class="important-item">
+                    <span class="important-icon">💪</span>
+                    <div class="important-text">
+                        <strong>Síntesis de Proteínas:</strong> Proteínas de alto valor biológico en cada comida. Aminoácidos esenciales para mantener masa muscular en menopausia.
+                    </div>
+                </div>
+                <div class="important-item">
+                    <span class="important-icon">🦠</span>
+                    <div class="important-text">
+                        <strong>Equilibrio Microbiano:</strong> Alimentos fermentados, vegetales bajos en carbohidratos, fibra soluble. Reducción natural de acidez estomacal.
+                    </div>
+                </div>
+                <div class="important-item">
+                    <span class="important-icon">🍬</span>
+                    <div class="important-text">
+                        <strong>Metabolismo del Azúcar:</strong> Dieta baja en carbohidratos < 30g netos/día. Estabilización glucémica para mejor energía y sueño.
+                    </div>
+                </div>
+                <div class="important-item">
+                    <span class="important-icon">🚫</span>
+                    <div class="important-text">
+                        <strong>Alimentos a Evitar (90 días):</strong> Mandarina, carne de vaca, lentejas, moras, café, leche de vaca, almejas, zarzamora, pistachos. Reducir castañas de Pará (máx 2/día).
+                    </div>
+                </div>
+                <div class="important-item">
+                    <span class="important-icon">💊</span>
+                    <div class="important-text">
+                        <strong>Condiciones Especiales:</strong> Plan adaptado para menopausia. Soporte digestivo natural, mejora del sueño, regulación intestinal.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">1400</div>
+                <div class="stat-label">Calorías Promedio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12-14h</div>
+                <div class="stat-label">Ayuno Intermitente</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">< 30g</div>
+                <div class="stat-label">Carbohidratos Netos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">65-70%</div>
+                <div class="stat-label">Grasas Saludables</div>
+            </div>
+        </div>
+        
+        <!-- Formula Section -->
+        <div class="important-section" style="background: linear-gradient(135deg, rgba(0, 206, 107, 0.1) 0%, rgba(0, 206, 107, 0.05) 100%); border-color: var(--green);">
+            <h2 class="important-title" style="color: var(--green);">
+                <span class="important-icon">🎯</span>
+                FÓRMULA SIMPLE PARA ARMAR TUS COMIDAS
+            </h2>
+            <div class="important-content">
+                <div class="important-item" style="border-color: rgba(0, 206, 107, 0.2);">
+                    <span class="important-icon" style="color: var(--green);">1</span>
+                    <div class="important-text">
+                        <strong style="color: var(--green);">ENTRADA SIEMPRE</strong><br>
+                        Mix de verdes ABUNDANTE<br>
+                        + 1 cda vinagreta<br>
+                        + 1 cda semillas<br>
+                        <em>(Sin límite de cantidad)</em>
+                    </div>
+                </div>
+                <div class="important-item" style="border-color: rgba(0, 206, 107, 0.2);">
+                    <span class="important-icon" style="color: var(--green);">2</span>
+                    <div class="important-text">
+                        <strong style="color: var(--green);">PROTEÍNA</strong><br>
+                        Pollo/Cerdo: <strong>150g</strong><br>
+                        Pescado: <strong>150g</strong><br>
+                        Huevos: <strong>2 unidades</strong><br>
+                        Atún: <strong>100g</strong>
+                    </div>
+                </div>
+                <div class="important-item" style="border-color: rgba(0, 206, 107, 0.2);">
+                    <span class="important-icon" style="color: var(--green);">3</span>
+                    <div class="important-text">
+                        <strong style="color: var(--green);">VEGETALES LIBRES</strong><br>
+                        Brócoli, Coliflor<br>
+                        Zapallitos, Berenjenas<br>
+                        Espinaca, Acelga, Kale<br>
+                        Hongos, Repollo, Apio<br>
+                        Pepino, Puerro, Nabo<br>
+                        Cebollas
+                    </div>
+                </div>
+                <div class="important-item" style="border-color: rgba(0, 206, 107, 0.2);">
+                    <span class="important-icon" style="color: var(--green);">4</span>
+                    <div class="important-text">
+                        <strong style="color: var(--green);">GRASA CONTROLADA</strong><br>
+                        Aceite oliva: <strong>1 cda</strong><br>
+                        Palta: <strong>1/4 (40g)</strong><br>
+                        Frutos secos: <strong>1/4 taza (25g)</strong><br>
+                        Semillas: <strong>1 cda</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="alert" style="background: linear-gradient(135deg, rgba(255, 106, 0, 0.1) 0%, rgba(255, 106, 0, 0.05) 100%); border-color: rgba(255, 106, 0, 0.3); margin-top: 20px; margin-bottom: 0;">
+                <h3 class="alert-title" style="color: var(--orange);">
+                    <span class="alert-icon">⚠️</span>
+                    IMPORTANTE PARA OPTIMIZAR:
+                </h3>
+                <ul>
+                    <li>Respetar las porciones indicadas (no repetir)</li>
+                    <li>Los vegetales moderados: zanahoria, tomate, boniato - máximo 1/2 taza o 80g</li>
+                    <li>Frutos secos: máximo 1/4 taza al día (25g total)</li>
+                    <li>Aceite: máximo 1 cucharada por comida</li>
+                    <li>No cenar después de las 20:00 hs</li>
+                    <li>Masticar mínimo 20 veces cada bocado</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Day Cards -->
+        <div class="week-grid">
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 1 - Lunes</span>
+                    <span class="calories-badge">1420 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">480 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">2 huevos revueltos con mantequilla</div>
+                            <div class="meal-item">1/2 palta <span class="portion">(80g)</span></div>
+                            <div class="meal-item">Espinaca salteada con aceite</div>
+                            <div class="meal-item">2 fetas jamón cocido</div>
+                            <div class="meal-item">Té de manzanilla con jengibre</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Soporte Emocional:</span>
+                            Huevos (triptófano, colina), palta (magnesio), manzanilla (digestivo relajante)
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">540 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Salmón al horno <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Brócoli con mantequilla y ajo</div>
+                            <div class="meal-item">Ensalada verde (rúcula, espinaca)</div>
+                            <div class="meal-item">2 cdas aceite oliva + limón</div>
+                            <div class="meal-item">10 aceitunas negras</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Omega-3 + Proteína:</span>
+                            Salmón (EPA/DHA), brócoli (fibra prebiótica), aceitunas (grasas monoinsaturadas)
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">400 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo al horno <span class="portion">(120g)</span></div>
+                            <div class="meal-item">Berenjena grillada con aceite</div>
+                            <div class="meal-item">Coles de Bruselas salteadas</div>
+                            <div class="meal-item">Infusión de pasiflora</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Cena Relajante:</span>
+                            Pollo (triptófano), berenjena (fibra), pasiflora para mejor sueño
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno: 19:00 - 8:00 (13h)
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">💧</span>
+                        10-12 vasos agua + tisanas digestivas
+                    </div>
+                    <div class="snack-note">
+                        Snack opcional: 10 almendras (80 cal)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 2 - Martes</span>
+                    <span class="calories-badge">1380 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">450 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Omelette 2 huevos con hongos</div>
+                            <div class="meal-item">30g queso rallado</div>
+                            <div class="meal-item">1/2 palta <span class="portion">(80g)</span></div>
+                            <div class="meal-item">Tomates cherry asados <span class="portion">(100g)</span></div>
+                            <div class="meal-item">Té o infusión a elección</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Fácil y Nutritivo:</span>
+                            Omelette simple, hongos (vitamina D), palta (grasas buenas)
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">520 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pescado blanco <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Zapallitos salteados con ajo</div>
+                            <div class="meal-item">Brotes de alfalfa y rúcula</div>
+                            <div class="meal-item">Kimchi <span class="portion">(30g)</span></div>
+                            <div class="meal-item">Aceite de oliva <span class="portion">(2 cdas)</span></div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Digestivo:</span>
+                            Kimchi (probióticos naturales), pescado ligero, vegetales frescos
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">410 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo grillado <span class="portion">(130g)</span></div>
+                            <div class="meal-item">Ensalada tibia de repollo</div>
+                            <div class="meal-item">Morrones asados</div>
+                            <div class="meal-item">Caldo de hueso casero</div>
+                            <div class="meal-item">Té de melisa</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Menopausia + Sueño:</span>
+                            Caldo hueso (colágeno), melisa (ansiolítico natural)
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno: 12-14 horas
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">💧</span>
+                        Agua con limón entre comidas
+                    </div>
+                    <div class="snack-note">
+                        Pre-sueño: Leche dorada con cúrcuma (opcional)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 3 - Miércoles</span>
+                    <span class="calories-badge">1440 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">470 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">2 huevos pochados</div>
+                            <div class="meal-item">Champiñones salteados <span class="portion">(100g)</span></div>
+                            <div class="meal-item">1/2 palta <span class="portion">(80g)</span></div>
+                            <div class="meal-item">Espinaca con aceite oliva</div>
+                            <div class="meal-item">Té verde sin cafeína</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">550 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo al limón <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Zucchini en cintas salteados</div>
+                            <div class="meal-item">Ensalada con nueces <span class="portion">(20g)</span></div>
+                            <div class="meal-item">Chucrut <span class="portion">(30g)</span></div>
+                            <div class="meal-item">Vinagreta de mostaza</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Proteína + Probióticos:</span>
+                            Pollo (aminoácidos), chucrut (fermentado), nueces (omega-3)
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">420 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Salmón salvaje <span class="portion">(120g)</span></div>
+                            <div class="meal-item">Acelga salteada con ajo</div>
+                            <div class="meal-item">Berenjenas al horno</div>
+                            <div class="meal-item">1 cda ghee</div>
+                            <div class="meal-item">Infusión de valeriana</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Omega-3 + Sueño:</span>
+                            Salmón (DHA/EPA), valeriana para sueño profundo
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno: 12-14 horas
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">💊</span>
+                        Probióticos en ayunas
+                    </div>
+                    <div class="snack-note">
+                        2 castañas de Pará (selenio)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 4 - Jueves</span>
+                    <span class="calories-badge">1390 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">460 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Revuelto de 2 huevos</div>
+                            <div class="meal-item">40g queso fresco</div>
+                            <div class="meal-item">6 aceitunas verdes</div>
+                            <div class="meal-item">1/4 palta <span class="portion">(40g)</span></div>
+                            <div class="meal-item">Té verde con mantequilla (opcional)</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Energía Sostenida:</span>
+                            Desayuno balanceado para energía mental estable todo el día
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">530 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo al curry suave <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Coles de Bruselas salteadas</div>
+                            <div class="meal-item">Leche de coco <span class="portion">(50ml)</span></div>
+                            <div class="meal-item">Espinaca baby</div>
+                            <div class="meal-item">Semillas de sésamo <span class="portion">(10g)</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">400 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Atún fresco <span class="portion">(120g)</span></div>
+                            <div class="meal-item">Ensalada de palta y pepino</div>
+                            <div class="meal-item">Algas nori <span class="portion">(5g)</span></div>
+                            <div class="meal-item">Aceite de oliva <span class="portion">(2 cdas)</span></div>
+                            <div class="meal-item">Té de tilo</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Minerales + Sueño:</span>
+                            Algas (yodo, minerales), atún (B12), tilo relajante
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno: 12-14 horas
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">💧</span>
+                        Caldo de hueso entre comidas
+                    </div>
+                    <div class="snack-note">
+                        Magnesio antes de dormir
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 5 - Viernes</span>
+                    <span class="calories-badge">1370 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">440 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">2 huevos a la plancha</div>
+                            <div class="meal-item">Jamón cocido <span class="portion">(50g)</span></div>
+                            <div class="meal-item">Espinaca con mantequilla</div>
+                            <div class="meal-item">5 tomates cherry</div>
+                            <div class="meal-item">Té de jengibre fresco</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">510 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pescado blanco <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Mix de hongos salteados</div>
+                            <div class="meal-item">Tahini <span class="portion">(2 cdas)</span></div>
+                            <div class="meal-item">Ensalada verde con semillas</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Digestivo Suave:</span>
+                            Pescado blanco ligero, hongos (prebióticos)
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">420 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo desmenuzado <span class="portion">(120g)</span></div>
+                            <div class="meal-item">Sopa de verduras casera</div>
+                            <div class="meal-item">Repollo hervido</div>
+                            <div class="meal-item">Perejil fresco abundante</div>
+                            <div class="meal-item">Infusión relajante</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno: 12-14 horas
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">😴</span>
+                        Meditación 10 min antes dormir
+                    </div>
+                    <div class="snack-note">
+                        L-teanina opcional para calma
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 6 - Sábado</span>
+                    <span class="calories-badge">1450 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno Especial</h3>
+                            <span class="meal-calories">490 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Tortilla de 3 huevos con jamón</div>
+                            <div class="meal-item">Palta <span class="portion">(100g)</span></div>
+                            <div class="meal-item">Tomates asados</div>
+                            <div class="meal-item">Mantequilla de almendra <span class="portion">(1 cda)</span></div>
+                            <div class="meal-item">Infusión con leche de coco</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Sábado Especial:</span>
+                            Desayuno más abundante para el fin de semana
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">560 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Lasaña de pollo y berenjenas</div>
+                            <div class="meal-item">(capas berenjena, pollo, queso)</div>
+                            <div class="meal-item">Ensalada mixta</div>
+                            <div class="meal-item">Vinagreta de hierbas</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Receta Especial:</span>
+                            Lasaña sin pasta, rica en proteínas y vegetales
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">400 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Wok de mariscos <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Vegetales salteados variados</div>
+                            <div class="meal-item">Aceite de sésamo <span class="portion">(1 cda)</span></div>
+                            <div class="meal-item">Jengibre y ajo frescos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Ayuno flexible: 10-12 horas
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">🚶‍♀️</span>
+                        Caminata suave post-comidas
+                    </div>
+                    <div class="snack-note">
+                        Día flexible, hidratación importante
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span>Día 7 - Domingo</span>
+                    <span class="calories-badge">1360 cal</span>
+                </div>
+                <div class="day-content">
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Desayuno</h3>
+                            <span class="meal-calories">450 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Huevos revueltos cremosos (2)</div>
+                            <div class="meal-item">Queso crema <span class="portion">(30g)</span></div>
+                            <div class="meal-item">1/2 palta <span class="portion">(80g)</span></div>
+                            <div class="meal-item">Aceitunas mixtas <span class="portion">(30g)</span></div>
+                            <div class="meal-item">Té de hierbas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Almuerzo</h3>
+                            <span class="meal-calories">520 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Pollo al horno <span class="portion">(150g)</span></div>
+                            <div class="meal-item">Ensalada mediterránea</div>
+                            <div class="meal-item">(pepino, tomate, aceitunas)</div>
+                            <div class="meal-item">Aceite de oliva extra virgen</div>
+                            <div class="meal-item">Orégano y albahaca frescos</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Domingo Mediterráneo:</span>
+                            Comida reconfortante con grasas saludables
+                        </div>
+                    </div>
+                    
+                    <div class="meal">
+                        <div class="meal-header">
+                            <h3 class="meal-title">Cena</h3>
+                            <span class="meal-calories">390 cal</span>
+                        </div>
+                        <div class="meal-items">
+                            <div class="meal-item">Caldo de pollo con verduras</div>
+                            <div class="meal-item">Pescado en papillote <span class="portion">(100g)</span></div>
+                            <div class="meal-item">Espinacas salteadas</div>
+                            <div class="meal-item">Queso rallado <span class="portion">(20g)</span></div>
+                            <div class="meal-item">Infusión de lavanda</div>
+                        </div>
+                        <div class="special-note">
+                            <span class="special-note-label">Preparación Semanal:</span>
+                            Cena ligera para cerrar la semana
+                        </div>
+                    </div>
+                </div>
+                <div class="day-footer">
+                    <div class="footer-item">
+                        <span class="footer-icon">⏱</span>
+                        Planificar semana siguiente
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-icon">💧</span>
+                        Hidratación abundante
+                    </div>
+                    <div class="snack-note">
+                        Baño con sales de magnesio
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Supplements Section -->
+        <section class="supplements-section">
+            <h2 class="supplements-title">Suplementación Personalizada según Cell Wellbeing</h2>
+            <div class="supplements-grid">
+                <div class="supplement-card">
+                    <div class="supplement-name">Complejo B + B12</div>
+                    <div class="supplement-dose">1 cápsula alta potencia</div>
+                    <div class="supplement-timing">Con desayuno - Energía y sistema nervioso</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">Magnesio Glicinato</div>
+                    <div class="supplement-dose">400-500mg</div>
+                    <div class="supplement-timing">Antes de dormir - Relajación muscular y sueño</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">Omega 3 (EPA/DHA)</div>
+                    <div class="supplement-dose">3000mg</div>
+                    <div class="supplement-timing">Con comidas - Antiinflamatorio y emocional</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">Probióticos 50B UFC</div>
+                    <div class="supplement-dose">1 cápsula</div>
+                    <div class="supplement-timing">En ayunas - Equilibrio microbioma</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">Vitamina D3 + K2</div>
+                    <div class="supplement-dose">4000 UI + 100mcg</div>
+                    <div class="supplement-timing">Con grasa - Huesos y estado de ánimo</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">L-Triptófano</div>
+                    <div class="supplement-dose">500mg</div>
+                    <div class="supplement-timing">Media tarde vacío - Precursor serotonina</div>
+                </div>
+                <div class="supplement-card">
+                    <div class="supplement-name">Ashwagandha KSM-66</div>
+                    <div class="supplement-dose">600mg</div>
+                    <div class="supplement-timing">Mañana - Reduce cortisol, mejora sueño</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Alert Box -->
+        <div class="alert">
+            <h3 class="alert-title">
+                <span class="alert-icon">⚠️</span>
+                Protocolo de Optimización Integral - María Fernanda
+            </h3>
+            <ul>
+                <li><strong>Soporte Emocional:</strong> Grasas omega-3 abundantes, triptófano natural, magnesio nocturno, técnicas respiración 4-7-8</li>
+                <li><strong>Síntesis Proteica:</strong> 1.2-1.5g proteína/kg peso, distribuida en 3 comidas principales</li>
+                <li><strong>Equilibrio Microbiano:</strong> Fermentados diarios, caldo de hueso, reducir antiácidos naturalmente</li>
+                <li><strong>Control Glucémico:</strong> Mantener < 30g carbohidratos netos/día para estabilidad energética</li>
+                <li><strong>Calidad del Sueño:</strong> Última comida 3-4h antes dormir, magnesio + L-triptófano + ashwagandha</li>
+                <li><strong>Digestión:</strong> Masticar 30 veces, no beber con comidas, jengibre post-comida</li>
+                <li><strong>Hidratación:</strong> 2.5L agua/día distribuida entre comidas</li>
+                <li><strong>Ejercicio:</strong> Caminar 30-45 min/día, yoga suave, pesas ligeras 2x/semana para masa muscular</li>
+            </ul>
+        </div>
+        
+        <!-- Tips Section -->
+        <section class="tips-section">
+            <h2 class="section-title">Estrategias Específicas para Tu Bienestar</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">😴</div>
+                    <h3 class="tip-title">Protocolo del Sueño</h3>
+                    <p class="tip-text">Cena temprano (18-19h), magnesio + L-triptófano 1h antes dormir, cuarto fresco (18-20°C), sin pantallas 2h antes.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🧘‍♀️</div>
+                    <h3 class="tip-title">Anti-Estrés Natural</h3>
+                    <p class="tip-text">Ashwagandha AM, respiración coherente 5-5-5, baños con sales Epsom, journaling nocturno 5 min.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h3 class="tip-title">Digestión Sin Acidez</h3>
+                    <p class="tip-text">Vinagre de manzana diluido pre-comida, masticar jengibre fresco, evitar agua 30 min post-comida.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">⚡</div>
+                    <h3 class="tip-title">Energía Sostenida</h3>
+                    <p class="tip-text">Grasas saludables en cada comida, agua abundante, no saltear comidas, snacks de nueces si necesario.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🌿</div>
+                    <h3 class="tip-title">Hormonas Balanceadas</h3>
+                    <p class="tip-text">Crucíferas diarias, semillas de lino molidas, vitamina D con sol 15 min, yoga hormonal 2x/semana.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💊</div>
+                    <h3 class="tip-title">Suplementación Timing</h3>
+                    <p class="tip-text">Probióticos ayunas, B-complex desayuno, omega-3 con comidas, magnesio noche. Consistencia es clave.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
